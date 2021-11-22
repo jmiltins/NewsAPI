@@ -9,23 +9,28 @@
 /* Begin PBXBuildFile section */
 		8B13FAF0274AC89F0099DBDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B13FAEF274AC89F0099DBDC /* AppDelegate.swift */; };
 		8B13FAF2274AC89F0099DBDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B13FAF1274AC89F0099DBDC /* SceneDelegate.swift */; };
-		8B13FAF4274AC89F0099DBDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B13FAF3274AC89F0099DBDC /* ViewController.swift */; };
+		8B13FAF4274AC89F0099DBDC /* NewsFeedViewController.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B13FAF3274AC89F0099DBDC /* NewsFeedViewController.swift.swift */; };
 		8B13FAF7274AC89F0099DBDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B13FAF5274AC89F0099DBDC /* Main.storyboard */; };
 		8B13FAFA274AC89F0099DBDC /* NewsAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B13FAF8274AC89F0099DBDC /* NewsAPI.xcdatamodeld */; };
 		8B13FAFC274AC8A40099DBDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B13FAFB274AC8A40099DBDC /* Assets.xcassets */; };
 		8B13FAFF274AC8A40099DBDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B13FAFD274AC8A40099DBDC /* LaunchScreen.storyboard */; };
+		8B13FB08274AC8E00099DBDC /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 8B13FB07274AC8DF0099DBDC /* SDWebImage */; };
+		8B13FB0F274ACA210099DBDC /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B13FB0E274ACA210099DBDC /* NewsItem.swift */; };
+		8B13FB11274ACA840099DBDC /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B13FB10274ACA840099DBDC /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8B13FAEC274AC89F0099DBDC /* NewsAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B13FAEF274AC89F0099DBDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B13FAF1274AC89F0099DBDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8B13FAF3274AC89F0099DBDC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8B13FAF3274AC89F0099DBDC /* NewsFeedViewController.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift.swift; sourceTree = "<group>"; };
 		8B13FAF6274AC89F0099DBDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B13FAF9274AC89F0099DBDC /* NewsAPI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsAPI.xcdatamodel; sourceTree = "<group>"; };
 		8B13FAFB274AC8A40099DBDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B13FAFE274AC8A40099DBDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B13FB00274AC8A40099DBDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B13FB0E274ACA210099DBDC /* NewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
+		8B13FB10274ACA840099DBDC /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B13FB08274AC8E00099DBDC /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,16 +64,58 @@
 		8B13FAEE274AC89F0099DBDC /* NewsAPI */ = {
 			isa = PBXGroup;
 			children = (
-				8B13FAEF274AC89F0099DBDC /* AppDelegate.swift */,
-				8B13FAF1274AC89F0099DBDC /* SceneDelegate.swift */,
-				8B13FAF3274AC89F0099DBDC /* ViewController.swift */,
-				8B13FAF5274AC89F0099DBDC /* Main.storyboard */,
+				8B13FB0C274AC93D0099DBDC /* Extension */,
+				8B13FB0D274AC9620099DBDC /* Model */,
+				8B13FB09274AC8F60099DBDC /* AppDeligates */,
+				8B13FB0A274AC9150099DBDC /* Controllers */,
+				8B13FB0B274AC92E0099DBDC /* View */,
 				8B13FAFB274AC8A40099DBDC /* Assets.xcassets */,
-				8B13FAFD274AC8A40099DBDC /* LaunchScreen.storyboard */,
 				8B13FB00274AC8A40099DBDC /* Info.plist */,
 				8B13FAF8274AC89F0099DBDC /* NewsAPI.xcdatamodeld */,
 			);
 			path = NewsAPI;
+			sourceTree = "<group>";
+		};
+		8B13FB09274AC8F60099DBDC /* AppDeligates */ = {
+			isa = PBXGroup;
+			children = (
+				8B13FAEF274AC89F0099DBDC /* AppDelegate.swift */,
+				8B13FAF1274AC89F0099DBDC /* SceneDelegate.swift */,
+			);
+			path = AppDeligates;
+			sourceTree = "<group>";
+		};
+		8B13FB0A274AC9150099DBDC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8B13FAF3274AC89F0099DBDC /* NewsFeedViewController.swift.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8B13FB0B274AC92E0099DBDC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8B13FAF5274AC89F0099DBDC /* Main.storyboard */,
+				8B13FAFD274AC8A40099DBDC /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B13FB0C274AC93D0099DBDC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8B13FB10274ACA840099DBDC /* Alert.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		8B13FB0D274AC9620099DBDC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B13FB0E274ACA210099DBDC /* NewsItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +134,9 @@
 			dependencies = (
 			);
 			name = NewsAPI;
+			packageProductDependencies = (
+				8B13FB07274AC8DF0099DBDC /* SDWebImage */,
+			);
 			productName = NewsAPI;
 			productReference = 8B13FAEC274AC89F0099DBDC /* NewsAPI.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +165,9 @@
 				Base,
 			);
 			mainGroup = 8B13FAE3274AC89F0099DBDC;
+			packageReferences = (
+				8B13FB06274AC8DF0099DBDC /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 8B13FAED274AC89F0099DBDC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -141,7 +195,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B13FAF4274AC89F0099DBDC /* ViewController.swift in Sources */,
+				8B13FB11274ACA840099DBDC /* Alert.swift in Sources */,
+				8B13FAF4274AC89F0099DBDC /* NewsFeedViewController.swift.swift in Sources */,
+				8B13FB0F274ACA210099DBDC /* NewsItem.swift in Sources */,
 				8B13FAF0274AC89F0099DBDC /* AppDelegate.swift in Sources */,
 				8B13FAF2274AC89F0099DBDC /* SceneDelegate.swift in Sources */,
 				8B13FAFA274AC89F0099DBDC /* NewsAPI.xcdatamodeld in Sources */,
@@ -364,6 +420,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8B13FB06274AC8DF0099DBDC /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8B13FB07274AC8DF0099DBDC /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B13FB06274AC8DF0099DBDC /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		8B13FAF8274AC89F0099DBDC /* NewsAPI.xcdatamodeld */ = {
