@@ -5,9 +5,6 @@
 //  Created by janis.miltins on 21/11/2021.
 //
 
-import Foundation
-
-
 struct NewsItem: Decodable {
     
     var description: String
