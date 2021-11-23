@@ -196,10 +196,10 @@
             </objects>
             <point key="canvasLocation" x="2606" y="50"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="D5B-a2-G6i">
             <objects>
-                <viewController id="Up0-aY-BWL" sceneMemberID="viewController">
+                <viewController id="Up0-aY-BWL" customClass="WebViewController" customModule="NewsAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I8z-bQ-eax">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -223,6 +223,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hCe-t3-UHY"/>
+                    <connections>
+                        <outlet property="webView" destination="GZX-tc-IZi" id="6SS-pj-9MH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nhZ-3Q-4uJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
