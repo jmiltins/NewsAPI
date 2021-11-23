@@ -13,6 +13,8 @@ import CoreData
 
 class DetailViewController: UIViewController {
     
+    var savedItems = [Items]()
+    
     var webUrlString = String()
     var titleString = String()
     var contentString = String()
