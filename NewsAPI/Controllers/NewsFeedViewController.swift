@@ -106,5 +106,23 @@ extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
-    
+    //for detail view controller data
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {return}
+        
+        let item = newsItems[indexPath.row]
+        
+        vc.newsImage = item.urlToImage
+        vc.titleString = item.title
+        vc.webUrlString = item.url
+        vc.contentString = item.description // edit to content
+        
+        //present(vc)
+        //present(vc, animated: true, completion: nil)
+        //or
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
 }

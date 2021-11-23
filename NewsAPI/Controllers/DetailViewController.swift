@@ -9,12 +9,14 @@ import UIKit
 import SDWebImage
 import CoreData
 
-var webUrlString = String()
-var titleString = String()
-var contentString = String()
-var newsImage = String()
+
 
 class DetailViewController: UIViewController {
+    
+    var webUrlString = String()
+    var titleString = String()
+    var contentString = String()
+    var newsImage = String()
 
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var newsImageView: UIImageView!
