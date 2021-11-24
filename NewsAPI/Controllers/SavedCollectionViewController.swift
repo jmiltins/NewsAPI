@@ -1,10 +1,9 @@
 //
-//  savedTableViewController.swift
+//  SavedCollectionViewController.swift
 //  NewsAPI
 //
-//  Created by janis.miltins on 23/11/2021.
+//  Created by janis.miltins on 24/11/2021.
 //
-
 import UIKit
 import CoreData
 import SDWebImage
@@ -75,7 +74,7 @@ class SavedTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "saveCell", for: indexPath) as? NewsTableViewCell else{
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "saveCell", for: indexPath) as? SavedTableViewCell else{
             return UITableViewCell()
         }
         
@@ -140,6 +139,7 @@ class SavedTableViewController: UITableViewController {
     }
     
     // MARK: - Navigation
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         guard let vc = storyboard.instantiateViewController(identifier: "WebViewController") as? WebViewController else {

@@ -9,8 +9,8 @@ import UIKit
 
 class SavedTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var newsTitleLabel: UIImageView!
+    @IBOutlet weak var newsTitleLabel: UILabel!
+    
     
     @IBOutlet weak var newsImageView: UIImageView!
-    
 }
