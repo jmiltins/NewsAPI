@@ -86,7 +86,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Apple new" id="ylj-zl-7Rs">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="info.circle.fill" catalog="system" id="4W8-ei-fGz"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="paperplane" catalog="system" id="8C6-Mq-juT"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="paperplane" catalog="system" id="8C6-Mq-juT">
+                            <connections>
+                                <action selector="reloadButtonTapped:" destination="BYZ-38-t0r" id="Qd4-1b-LjD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -128,7 +132,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VxP-5g-z0B">
                                         <rect key="frame" x="0.0" y="239" width="288" height="277"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -269,10 +273,10 @@
             </objects>
             <point key="canvasLocation" x="-104" y="520"/>
         </scene>
-        <!--Apple new-->
+        <!--Saved News-->
         <scene sceneID="9qd-48-wel">
             <objects>
-                <viewController id="pbq-N2-yy0" customClass="NewsFeedViewController" customModule="NewsAPI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pbq-N2-yy0" customClass="SavedTableViewController" customModule="NewsAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1UY-uG-aZk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -318,12 +322,12 @@
                                                 <constraint firstAttribute="trailing" secondItem="dUi-8K-3Fh" secondAttribute="trailing" constant="12" id="Rxy-Nj-zhD"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="newsImageView" destination="CfK-aJ-pOo" id="hL3-QB-RI8"/>
-                                            <outlet property="newsTitleLabel" destination="Ujz-z0-Qqp" id="cR7-nW-KJT"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="pbq-N2-yy0" id="X1C-pf-ia6"/>
+                                    <outlet property="delegate" destination="pbq-N2-yy0" id="qnJ-IB-deJ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="f8i-f4-d6v"/>
@@ -335,14 +339,41 @@
                             <constraint firstItem="HdK-6R-aEh" firstAttribute="top" secondItem="1UY-uG-aZk" secondAttribute="top" id="aKJ-k9-9Pa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Apple new" id="Foc-D2-M0o"/>
-                    <connections>
-                        <outlet property="tblView" destination="HdK-6R-aEh" id="Pc3-Rt-nTT"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Saved News" id="Foc-D2-M0o">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="info.circle.fill" catalog="system" id="Cyo-op-2bB">
+                            <connections>
+                                <segue destination="OAg-9d-b4g" kind="show" id="Lso-S2-uyh"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="trash.circle.fill" catalog="system" id="8h8-Aa-3aG">
+                                <connections>
+                                    <action selector="deleteAllItems:" destination="pbq-N2-yy0" id="Xud-xv-duL"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="newspaper" catalog="system" id="fXW-hV-ZGc"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBK-JG-rbE" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1828.985507246377" y="833.1521739130435"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="LSw-2I-5Te">
+            <objects>
+                <viewController id="OAg-9d-b4g" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ixc-bd-Wgr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="bQG-yB-FUb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="buR-N3-yhI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zXD-7D-oIX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1836" y="1511"/>
         </scene>
         <!--Item-->
         <scene sceneID="iOe-fP-P29">
@@ -369,6 +400,7 @@
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>
         <image name="paperplane" catalog="system" width="128" height="118"/>
+        <image name="trash.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

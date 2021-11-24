@@ -32,6 +32,10 @@ class NewsFeedViewController: UIViewController {
         
     }
     //
+    @IBAction func reloadButtonTapped(_ sender: Any) {
+        handleGetData()
+        print("JSON Reloaded")
+    }
     
     func activityIndicator(animated: Bool){
         //bring new tread
@@ -76,7 +80,7 @@ class NewsFeedViewController: UIViewController {
                 let jsonData = try JSONDecoder().decode(Articles.self, from: data)
                 self.newsItems = jsonData.articles
                 DispatchQueue.main.async {
-                    print("self.newsItems", self.newsItems)
+                    //print("self.newsItems", self.newsItems)
                     self.tblView.reloadData()
                     //stop activity indicator
                     self.activityIndicator(animated: false)
