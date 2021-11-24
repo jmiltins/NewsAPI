@@ -33,7 +33,7 @@ class SavedTableViewController: UITableViewController {
     func saveData(){
         do{
             try context?.save()
-            basicAlert(title: "Deleted!", message: "Oops you just erased from CoreData your article.")
+            basicAlert(title: "DELETED!", message: "Your article is Deleted.")
         }catch{
             print(error.localizedDescription)
         }

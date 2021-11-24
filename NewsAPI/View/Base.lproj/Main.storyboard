@@ -285,7 +285,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.57439111785511965" green="0.73908242204884456" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="saveCell" rowHeight="204" id="QFJ-Lw-Rog" customClass="NewsTableViewCell" customModule="NewsAPI" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="saveCell" rowHeight="204" id="QFJ-Lw-Rog" customClass="SavedTableViewCell" customModule="NewsAPI" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="320" height="204"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QFJ-Lw-Rog" id="Jgg-1W-q6J">
@@ -322,6 +322,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="dUi-8K-3Fh" secondAttribute="trailing" constant="12" id="Rxy-Nj-zhD"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="newsImageView" destination="CfK-aJ-pOo" id="lIp-CN-b02"/>
+                                            <outlet property="newsTitleLabel" destination="CfK-aJ-pOo" id="Nou-1B-EvX"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
