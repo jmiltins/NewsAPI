@@ -122,6 +122,7 @@ class NewsFeedViewController: UIViewController {
             }
             do{
                 let jsonData = try JSONDecoder().decode(Articles.self, from: data)
+                
                 self.newsItems = jsonData.articles
                 DispatchQueue.main.async {
                     //print("self.newsItems", self.newsItems)

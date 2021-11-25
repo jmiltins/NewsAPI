@@ -34,12 +34,12 @@ class DetailViewController: UIViewController {
         newsImageView.sd_setImage(with: URL(string:newsImage), placeholderImage: UIImage(named: "news.png"))
         
         
-#warning("//AppDelegate needed")
+//#warning("//AppDelegate needed")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
         
     }
-#warning("complete it")
+//#warning("complete it")
     // core data logic
     func saveData(){
         do{
@@ -72,7 +72,7 @@ class DetailViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
-#warning("must guard it")
+        //"must guard it"
         guard let destinationVC: WebViewController = segue.destination as? WebViewController else {return}
         
         destinationVC.urlString = webUrlString

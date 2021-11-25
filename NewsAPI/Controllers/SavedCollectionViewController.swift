@@ -158,6 +158,7 @@ class SavedTableViewController: UITableViewController {
         navigationController?.pushViewController(vc, animated: true)
         
     }
+<<<<<<< Updated upstream
     
 //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -170,4 +171,7 @@ class SavedTableViewController: UITableViewController {
 //        navigationController?.pushViewController(vc, animated: true)
 //    }
     
+=======
+
+>>>>>>> Stashed changes
 }
