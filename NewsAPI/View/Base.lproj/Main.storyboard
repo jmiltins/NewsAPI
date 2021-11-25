@@ -440,6 +440,12 @@
                                 <action selector="deleteAllItems:" destination="ya2-d7-WoS" id="CZR-oV-wLI"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="trash.circle.fill" catalog="system" id="dwJ-mr-Xgv">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="deleteAllSavedData:" destination="ya2-d7-WoS" id="Kfh-LO-rBq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfb-S5-iEa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -512,6 +518,7 @@
         <image name="folder" catalog="system" width="128" height="97"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>
+        <image name="trash.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

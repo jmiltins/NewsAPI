@@ -32,7 +32,7 @@ class SavedTableViewController: UITableViewController {
     func saveData(){
         do{
             try context?.save()
-            basicAlert(title: "DELETED!", message: "Your article is Deleted.")
+            
         }catch{
             print(error.localizedDescription)
         }
@@ -53,16 +53,40 @@ class SavedTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    @IBAction func deleteAllSavedData(_ sender: Any) {
+        
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "DELETE ALL!", message: "Delete all saved items?", preferredStyle: .alert)
+            // cancel Button
+            alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            //Ok button
+            alert.addAction(UIAlertAction(title: "OK", style: .destructive){ action in
+                self.deleteAllData()
+                self.basicAlert(title: "Deleting all items!", message: "List is empty!")
+            })
+        }
+    }
     
     //delete all
+    func deleteAllData(){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Items")
+        let delete: NSBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+        do{
+            try context?.execute(delete)
+            saveData()
+        }catch let err{
+            print(err.localizedDescription)
+        }
+    }
     
     
-    @IBAction func deleteAllItems(_ sender: Any) {
-        basicAlert(title: "Info", message: "In this section you will find your saved articles. Swipe from right side to the left, then press \"delete\"!")
+    @IBAction func infoButtonTapped(_ sender: Any) {
+        basicAlert(title: "Info", message: "Here you will find your saved articles. Swipe from right side to the left to delete single item, then press \"delete\"!")
     }
     func countItems() {
         let itemsInTable = String(self.tableView.numberOfRows(inSection: 0))
-        self.title = "Saved(\(itemsInTable))"
+        self.title = "Saved items (\(itemsInTable))"
     }
     
     // MARK: - Table view data source
@@ -107,7 +131,7 @@ class SavedTableViewController: UITableViewController {
      return true
      }
      */
-#warning("confirmation for delete")
+
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -118,6 +142,7 @@ class SavedTableViewController: UITableViewController {
                 let item = self.savedItems[indexPath.row]
                 self.context?.delete(item)
                 self.saveData()
+                self.basicAlert(title: "DELETED!", message: "Your article is Deleted.")
             }))
             self.present(alert, animated: true)
         }
@@ -142,36 +167,14 @@ class SavedTableViewController: UITableViewController {
     //for detail view controller data
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {return}
-        
-        let item = savedItems[indexPath.row]
-//        
-//        vc.newsImage = item.image.text
-//        vc.titleString = item.newsTitle?
-//        vc.webUrlString = savedItems[indexPath.row].url ??
-//        vc.contentString = item.description // edit to content
-//        
-        //present(vc)
-        //present(vc, animated: true, completion: nil)
-        //or
+        guard let vc = storyboard.instantiateViewController(identifier: "WebViewController") as? WebViewController else {
+            return
+        }
+        self.title = "Saved Items"
+        vc.urlString = savedItems[indexPath.row].url ?? "https://blog.thomasnet.com/hs-fs/hubfs/shutterstock_774749455.jpg?width=1200&name=shutterstock_774749455.jpg"
         navigationController?.pushViewController(vc, animated: true)
+    
         
     }
-<<<<<<< Updated upstream
-    
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//        guard let vc = storyboard.instantiateViewController(identifier: "WebViewController") as? WebViewController else {
-//            return
-//        }
-//        self.title = "Saved"
-//
-//        vc.urlString = savedItems[indexPath.row].url ?? "https://blog.thomasnet.com/hs-fs/hubfs/shutterstock_774749455.jpg?width=1200&name=shutterstock_774749455.jpg"
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
-    
-=======
 
->>>>>>> Stashed changes
 }
