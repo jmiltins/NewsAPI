@@ -27,25 +27,25 @@ class NewsFeedViewController: UIViewController {
     //first News
     var searchResult = "techcrunch"
     // news titles
-    let newsTitile1 = "TechNews"
-    let newsTitile2 = "AppleNews"
-    let newsTitile3 = "TeslaNews"
-    let newsTitile4 = "BusinessNews"
+    let newsTitile1 = "Tech News"
+    let newsTitile2 = "Apple News"
+    let newsTitile3 = "Tesla News"
+    let newsTitile4 = "Business News"
     
     //#warning("put your newsapi.org apikey here:")
     var apiKey = "a04fed7613e143d690a3a2b3a937a521"
     
     override func viewDidLoad() {
-        var currentNewsChoice = newsTitile1
+        //var currentNewsChoice = newsTitile1
         
         //button names
-        newsTopicButtonName1.setTitle("Tech News", for: .normal)
-        newsTopicButtonName2.setTitle("Apple News", for: .normal)
-        newsTopicButtonName3.setTitle("Tesla News", for: .normal)
-        newsTopicButtonName4.setTitle("Business News", for: .normal)
+        newsTopicButtonName1.setTitle("Tech", for: .normal)
+        newsTopicButtonName2.setTitle("Apple", for: .normal)
+        newsTopicButtonName3.setTitle("Tesla", for: .normal)
+        newsTopicButtonName4.setTitle("Business", for: .normal)
         super.viewDidLoad()
         //Title for tab, not to write manualy
-        self.title = "News"
+        self.title = "TechNews"
         handleGetData()
         //conect in code or drag in
 //        self.tblView.delegate

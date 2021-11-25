@@ -139,16 +139,35 @@ class SavedTableViewController: UITableViewController {
     }
     
     // MARK: - Navigation
-    
+    //for detail view controller data
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        guard let vc = storyboard.instantiateViewController(identifier: "WebViewController") as? WebViewController else {
-            return
-        }
-        self.title = "Saved"
         
-        vc.urlString = savedItems[indexPath.row].url ?? "https://blog.thomasnet.com/hs-fs/hubfs/shutterstock_774749455.jpg?width=1200&name=shutterstock_774749455.jpg"
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {return}
+        
+        let item = savedItems[indexPath.row]
+//        
+//        vc.newsImage = item.image.text
+//        vc.titleString = item.newsTitle?
+//        vc.webUrlString = savedItems[indexPath.row].url ??
+//        vc.contentString = item.description // edit to content
+//        
+        //present(vc)
+        //present(vc, animated: true, completion: nil)
+        //or
         navigationController?.pushViewController(vc, animated: true)
+        
     }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//        guard let vc = storyboard.instantiateViewController(identifier: "WebViewController") as? WebViewController else {
+//            return
+//        }
+//        self.title = "Saved"
+//
+//        vc.urlString = savedItems[indexPath.row].url ?? "https://blog.thomasnet.com/hs-fs/hubfs/shutterstock_774749455.jpg?width=1200&name=shutterstock_774749455.jpg"
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
     
 }
