@@ -98,7 +98,7 @@ class NewsFeedViewController: UIViewController {
     func handleGetData(){
         
         activityIndicator(animated: true)
-        let jsonUrl = "https://newsapi.org/v2/everything?q=\(searchResult)&from=2021-11-25&to=2021-11-05&sortBy=popularity&apiKey=\(apiKey)"
+        let jsonUrl = "https://newsapi.org/v2/everything?q=\(searchResult)&from=2021-11-26&to=2021-11-05&sortBy=popularity&apiKey=\(apiKey)"
         
         guard let url = URL(string: jsonUrl) else {return}
         

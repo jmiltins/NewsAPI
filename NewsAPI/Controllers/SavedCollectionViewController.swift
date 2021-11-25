@@ -80,9 +80,8 @@ class SavedTableViewController: UITableViewController {
         }
     }
     
-    
     @IBAction func infoButtonTapped(_ sender: Any) {
-        basicAlert(title: "Info", message: "Here you will find your saved articles. Swipe from right side to the left to delete single item, then press \"delete\"!")
+        basicAlert(title: "Info", message: "Here you will find your saved articles. Swipe from right side to the left to delete single item, then press \"delete\" or press \"Trash bin\" icon to delete all saved items!")
     }
     func countItems() {
         let itemsInTable = String(self.tableView.numberOfRows(inSection: 0))

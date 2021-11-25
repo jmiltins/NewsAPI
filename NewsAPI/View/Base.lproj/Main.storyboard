@@ -437,7 +437,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="info.circle.fill" catalog="system" id="4V0-zs-UPT">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
-                                <action selector="deleteAllItems:" destination="ya2-d7-WoS" id="CZR-oV-wLI"/>
+                                <action selector="infoButtonTapped:" destination="ya2-d7-WoS" id="Tf9-Gs-vXp"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="trash.circle.fill" catalog="system" id="dwJ-mr-Xgv">
