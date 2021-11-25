@@ -58,7 +58,7 @@ class SavedTableViewController: UITableViewController {
     
     
     @IBAction func deleteAllItems(_ sender: Any) {
-        basicAlert(title: "Saved News Info!", message: "In this section you will find your saved articles. If you decide to delete some articles, you can do it by using \"Edit\" button and click on delete symbol, or alternative way is to pointer on related article and swipe from right side the left, then press \"delete\"!")
+        basicAlert(title: "Info", message: "In this section you will find your saved articles. Swipe from right side to the left, then press \"delete\"!")
     }
     func countItems() {
         let itemsInTable = String(self.tableView.numberOfRows(inSection: 0))

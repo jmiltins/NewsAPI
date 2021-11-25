@@ -14,16 +14,38 @@ class NewsFeedViewController: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    //Topic button names
+    @IBOutlet weak var newsTopicButtonName1: UIButton!
     
+    @IBOutlet weak var newsTopicButtonName2: UIButton!
+    
+    @IBOutlet weak var newsTopicButtonName3: UIButton!
+    
+    @IBOutlet weak var newsTopicButtonName4: UIButton!
+    //
     var newsItems: [NewsItem] = []
-    var searchResult = "apple"
+    //first News
+    var searchResult = "techcrunch"
+    // news titles
+    let newsTitile1 = "TechNews"
+    let newsTitile2 = "AppleNews"
+    let newsTitile3 = "TeslaNews"
+    let newsTitile4 = "BusinessNews"
+    
     //#warning("put your newsapi.org apikey here:")
     var apiKey = "a04fed7613e143d690a3a2b3a937a521"
     
     override func viewDidLoad() {
+        var currentNewsChoice = newsTitile1
+        
+        //button names
+        newsTopicButtonName1.setTitle("Tech News", for: .normal)
+        newsTopicButtonName2.setTitle("Apple News", for: .normal)
+        newsTopicButtonName3.setTitle("Tesla News", for: .normal)
+        newsTopicButtonName4.setTitle("Business News", for: .normal)
         super.viewDidLoad()
         //Title for tab, not to write manualy
-        self.title = "Apple News"
+        self.title = "News"
         handleGetData()
         //conect in code or drag in
 //        self.tblView.delegate
@@ -31,10 +53,32 @@ class NewsFeedViewController: UIViewController {
     
         
     }
-    //
-    @IBAction func reloadButtonTapped(_ sender: Any) {
+    // Buttons tapped
+    @IBAction func newsTopicButton1(_ sender: Any) {
+        searchResult = "techcrunch"
+        self.title = newsTitile1
+        //reload data
         handleGetData()
-        print("JSON Reloaded")
+    }
+    @IBAction func newsTopicButton2(_ sender: Any) {
+        searchResult = "apple"
+        self.title = newsTitile2
+        handleGetData()
+    }
+    
+    @IBAction func newsTopicButton3(_ sender: Any) {
+        searchResult = "tesla"
+        self.title = newsTitile3
+        handleGetData()
+    }
+    
+    @IBAction func newsTopicButton4(_ sender: Any) {
+        searchResult = "business"
+        self.title = newsTitile4
+        handleGetData()
+    }
+    @IBAction func infoButtonTapped(_ sender: Any) {
+        basicAlert(title: "Info", message: "In this section you will find articles. Click on article to read it")
     }
     
     func activityIndicator(animated: Bool){
@@ -54,7 +98,7 @@ class NewsFeedViewController: UIViewController {
     func handleGetData(){
         
         activityIndicator(animated: true)
-        let jsonUrl = "https://newsapi.org/v2/everything?q=\(searchResult)&from=2021-11-19&to=2021-11-05&sortBy=popularity&apiKey=\(apiKey)"
+        let jsonUrl = "https://newsapi.org/v2/everything?q=\(searchResult)&from=2021-11-25&to=2021-11-05&sortBy=popularity&apiKey=\(apiKey)"
         
         guard let url = URL(string: jsonUrl) else {return}
         
